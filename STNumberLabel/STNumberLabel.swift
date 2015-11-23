@@ -60,7 +60,7 @@ class STNumberLabel: UIView {
     private func setupScrollNumberView() {
         let containerViewFrame = CGRect(origin: CGPointZero, size: CGSize(width: CGFloat(digit) * singleNumberSize.width, height: singleNumberSize.height))
         containerView = UIView(frame: containerViewFrame)
-        containerView.center = absoluteCenter()
+        containerView.center = absoluteCenter
         
         scrollNumberViews = []
         for i in 0..<digit {
@@ -76,7 +76,7 @@ class STNumberLabel: UIView {
     private func constructNewContainerView(newDigit newDigit: Int, diff: Int, numberArray: [Int]) {
         let newContainerViewFrame = CGRect(origin: CGPointZero, size: CGSize(width: CGFloat(newDigit) * singleNumberSize.width, height: singleNumberSize.height))
         let newContainerView = UIView(frame: newContainerViewFrame)
-        newContainerView.center = absoluteCenter()
+        newContainerView.center = absoluteCenter
         newContainerView.alpha = 0.0
         
         var newSrollNumberView: [STScrollNumberView] = []

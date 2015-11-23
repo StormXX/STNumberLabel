@@ -9,31 +9,45 @@
 import UIKit
 
 extension UIView {
-    func width() -> CGFloat {
-        return CGRectGetWidth(frame)
+    var width: CGFloat {
+        get {
+            return CGRectGetWidth(frame)
+        }
     }
     
-    func height() -> CGFloat {
-        return CGRectGetHeight(frame)
+    var height: CGFloat {
+        get {
+            return CGRectGetHeight(frame)
+        }
     }
     
-    func minX() -> CGFloat {
-        return CGRectGetMinX(frame)
+    var minX: CGFloat {
+        get {
+            return CGRectGetMinX(frame)
+        }
     }
     
-    func minY() -> CGFloat {
-        return CGRectGetMinY(frame)
+    var minY: CGFloat {
+        get {
+            return CGRectGetMinY(frame)
+        }
     }
     
-    func maxX() -> CGFloat {
-        return CGRectGetMaxX(frame)
+    var maxX: CGFloat {
+        get {
+            return CGRectGetMaxX(frame)
+        }
     }
     
-    func maxY() -> CGFloat {
-        return CGRectGetMaxY(frame)
+    var maxY: CGFloat {
+        get {
+            return CGRectGetMaxY(frame)
+        }
     }
     
-    func absoluteCenter() -> CGPoint {
-        return CGPoint(x: width() / 2, y: height() / 2)
+    var absoluteCenter: CGPoint {
+        get {
+            return CGPoint(x: width / 2, y: height / 2)
+        }
     }
 }
