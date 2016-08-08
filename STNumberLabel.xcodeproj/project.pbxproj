@@ -16,7 +16,6 @@
 		EB2DE4A81BF07F11000766F8 /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2DE4A71BF07F11000766F8 /* CharacterExtension.swift */; };
 		EB6F9E4E1BEE594C0097630D /* STNumberLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F9E4D1BEE594C0097630D /* STNumberLabel.swift */; };
 		EBD69A791BF9BA35000AB73C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD69A781BF9BA35000AB73C /* UIViewExtension.swift */; };
-		EBDCFEA61BFEF26B0037332B /* STScrollNumberViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDCFEA51BFEF26B0037332B /* STScrollNumberViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		EB2DE4A71BF07F11000766F8 /* CharacterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		EB6F9E4D1BEE594C0097630D /* STNumberLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STNumberLabel.swift; sourceTree = "<group>"; };
 		EBD69A781BF9BA35000AB73C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		EBDCFEA51BFEF26B0037332B /* STScrollNumberViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STScrollNumberViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,6 @@
 			children = (
 				EB2DE4A71BF07F11000766F8 /* CharacterExtension.swift */,
 				EBD69A781BF9BA35000AB73C /* UIViewExtension.swift */,
-				EBDCFEA51BFEF26B0037332B /* STScrollNumberViewExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -176,7 +173,6 @@
 			files = (
 				EBD69A791BF9BA35000AB73C /* UIViewExtension.swift in Sources */,
 				EB2DE4A81BF07F11000766F8 /* CharacterExtension.swift in Sources */,
-				EBDCFEA61BFEF26B0037332B /* STScrollNumberViewExtension.swift in Sources */,
 				EB29E0531BED9B1A002D9DEA /* ViewController.swift in Sources */,
 				EB29E0641BED9B5A002D9DEA /* STScrollNumberView.swift in Sources */,
 				EB6F9E4E1BEE594C0097630D /* STNumberLabel.swift in Sources */,

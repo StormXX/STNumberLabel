@@ -9,24 +9,33 @@
 import UIKit
 
 class STNumberLabel: UIView {
-    
-    private var digit: Int!
-    var scrollNumberViews: [STScrollNumberView]!
-    
-    internal var font: UIFont!
-    internal var singleNumberSize: CGSize!
-    internal var containerView: UIView!
-    
+
+    private var digit: Int
+    private var scrollNumberViews = [STScrollNumberView]()
+
+    private let font: UIFont
+    private let singleNumberSize: CGSize
+    private var containerView: UIView!
+
     init(frame: CGRect, digit: Int, font: UIFont, singleNumberSize: CGSize) {
         self.digit = digit
         self.font = font
         self.singleNumberSize = singleNumberSize
-        super.init(frame: frame)
-        setupScrollNumberView()
 
+        super.init(frame: frame)
+
+        self.containerView = setupScrollNumberView()
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension STNumberLabel {
+
     func scrollToNumber(number: Int) {
+
         let numberString = String(number)
         let newDigit = numberString.characters.count
         
@@ -42,27 +51,27 @@ class STNumberLabel: UIView {
                 scrollNumberView.scrollToNumber(numberArray[i])
             }
         }  else {
+
             let diff = newDigit - digit
-            let translate = CGFloat(diff) * (singleNumberSize!.width / 2)
-            
-            UIView.animateWithDuration(0.33, animations: { [unowned self]() -> Void in
-                self.containerView!.center = CGPoint(x: self.containerView!.center.x + translate, y: self.containerView!.center.y)
-                }, completion: { (finished) -> Void in
-                    if finished {
-                        self.constructNewContainerView(newDigit: newDigit, diff: diff, numberArray: numberArray)
-                    }
+            let translate = CGFloat(diff) * (singleNumberSize.width / 2)
+
+            UIView.animateWithDuration(0.33, animations: { [unowned self] in
+                self.containerView.center = CGPoint(x: self.containerView.center.x + translate, y: self.containerView.center.y)
+
+            }, completion: { _ in
+                self.constructNewContainerView(newDigit: newDigit, diff: diff, numberArray: numberArray)
             })
         }
-        
+
     }
     
     // MARK: - helper
-    private func setupScrollNumberView() {
+    private func setupScrollNumberView() -> UIView {
+
         let containerViewFrame = CGRect(origin: CGPointZero, size: CGSize(width: CGFloat(digit) * singleNumberSize.width, height: singleNumberSize.height))
-        containerView = UIView(frame: containerViewFrame)
+        let containerView = UIView(frame: containerViewFrame)
         containerView.center = absoluteCenter
-        
-        scrollNumberViews = []
+
         for i in 0..<digit {
             let numberFrame = CGRect(x: CGFloat(i)*singleNumberSize.width, y: 0, width: singleNumberSize.width, height: singleNumberSize.height)
             let scrollNumberView = STScrollNumberView(frame: numberFrame, font: font)
@@ -71,10 +80,14 @@ class STNumberLabel: UIView {
         }
         
         addSubview(containerView)
+
+        return containerView
     }
     
     private func constructNewContainerView(newDigit newDigit: Int, diff: Int, numberArray: [Int]) {
+
         let newContainerViewFrame = CGRect(origin: CGPointZero, size: CGSize(width: CGFloat(newDigit) * singleNumberSize.width, height: singleNumberSize.height))
+
         let newContainerView = UIView(frame: newContainerViewFrame)
         newContainerView.center = absoluteCenter
         newContainerView.alpha = 0.0
@@ -105,27 +118,26 @@ class STNumberLabel: UIView {
                 newContainerView.addSubview(scrollNumberView)
             }
         }
-
         
         addSubview(newContainerView)
-        
-        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveLinear, animations: { [unowned self]() -> Void in
+
+        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveLinear, animations: { [unowned self] in
+
             newContainerView.alpha = 1.0
             self.containerView.alpha = 0.0
-            }) { [unowned self](finished) -> Void in
-                self.containerView.removeFromSuperview()
-                self.containerView = newContainerView
-                self.scrollNumberViews = newSrollNumberView
-                self.digit = newDigit
-                
-                for i in 0..<self.scrollNumberViews.count {
-                    let scrollNumberView: STScrollNumberView = self.scrollNumberViews[i]
-                    scrollNumberView.scrollToNumber(numberArray[i])
-                }
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+
+        }, completion: { finished in
+
+            self.containerView.removeFromSuperview()
+            self.containerView = newContainerView
+            self.scrollNumberViews = newSrollNumberView
+            self.digit = newDigit
+
+            for i in 0..<self.scrollNumberViews.count {
+                let scrollNumberView: STScrollNumberView = self.scrollNumberViews[i]
+                scrollNumberView.scrollToNumber(numberArray[i])
+            }
+
+        })
     }
 }
