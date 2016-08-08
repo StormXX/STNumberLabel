@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         numberlabel = STNumberLabel(frame: CGRectMake(150, 200, 200, 50), digit: 4, font: UIFont.systemFontOfSize(22.0), singleNumberSize: CGSize(width: 20, height: 50))
-        numberlabel.center = CGPoint(x: view.width / 2, y: 200)
+        numberlabel.center = CGPoint(x: view.frame.width / 2, y: 200)
         view.addSubview(numberlabel);
     }
     

@@ -13,9 +13,7 @@
 		EB29E0581BED9B1A002D9DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB29E0571BED9B1A002D9DEA /* Assets.xcassets */; };
 		EB29E05B1BED9B1A002D9DEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB29E0591BED9B1A002D9DEA /* LaunchScreen.storyboard */; };
 		EB29E0641BED9B5A002D9DEA /* STScrollNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB29E0631BED9B5A002D9DEA /* STScrollNumberView.swift */; };
-		EB2DE4A81BF07F11000766F8 /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2DE4A71BF07F11000766F8 /* CharacterExtension.swift */; };
 		EB6F9E4E1BEE594C0097630D /* STNumberLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F9E4D1BEE594C0097630D /* STNumberLabel.swift */; };
-		EBD69A791BF9BA35000AB73C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD69A781BF9BA35000AB73C /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +25,7 @@
 		EB29E05A1BED9B1A002D9DEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB29E05C1BED9B1A002D9DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB29E0631BED9B5A002D9DEA /* STScrollNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STScrollNumberView.swift; sourceTree = "<group>"; };
-		EB2DE4A71BF07F11000766F8 /* CharacterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		EB6F9E4D1BEE594C0097630D /* STNumberLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STNumberLabel.swift; sourceTree = "<group>"; };
-		EBD69A781BF9BA35000AB73C /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,19 +81,9 @@
 		EB2DE4A61BF07E6D000766F8 /* STNumberLabel */ = {
 			isa = PBXGroup;
 			children = (
-				EB2DE4A91BF07F1F000766F8 /* Extension */,
 				EB29E0621BED9B1F002D9DEA /* Views */,
 			);
 			name = STNumberLabel;
-			sourceTree = "<group>";
-		};
-		EB2DE4A91BF07F1F000766F8 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				EB2DE4A71BF07F11000766F8 /* CharacterExtension.swift */,
-				EBD69A781BF9BA35000AB73C /* UIViewExtension.swift */,
-			);
-			name = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,8 +157,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBD69A791BF9BA35000AB73C /* UIViewExtension.swift in Sources */,
-				EB2DE4A81BF07F11000766F8 /* CharacterExtension.swift in Sources */,
 				EB29E0531BED9B1A002D9DEA /* ViewController.swift in Sources */,
 				EB29E0641BED9B5A002D9DEA /* STScrollNumberView.swift in Sources */,
 				EB6F9E4E1BEE594C0097630D /* STNumberLabel.swift in Sources */,

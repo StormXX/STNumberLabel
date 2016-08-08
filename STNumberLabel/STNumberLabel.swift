@@ -40,8 +40,8 @@ extension STNumberLabel {
         let newDigit = numberString.characters.count
         
         var numberArray: [Int] = []
-        numberString.characters.forEach { (character) -> () in
-            guard let intNumber = character.intValue() else { return }
+        numberString.characters.forEach { character in
+            guard let intNumber = Int(String(character)) else { return }
             numberArray.append(intNumber)
         }
         
@@ -70,7 +70,7 @@ extension STNumberLabel {
 
         let containerViewFrame = CGRect(origin: CGPointZero, size: CGSize(width: CGFloat(digit) * singleNumberSize.width, height: singleNumberSize.height))
         let containerView = UIView(frame: containerViewFrame)
-        containerView.center = absoluteCenter
+        containerView.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
 
         for i in 0..<digit {
             let numberFrame = CGRect(x: CGFloat(i)*singleNumberSize.width, y: 0, width: singleNumberSize.width, height: singleNumberSize.height)
@@ -78,7 +78,7 @@ extension STNumberLabel {
             scrollNumberViews.append(scrollNumberView)
             containerView.addSubview(scrollNumberView)
         }
-        
+
         addSubview(containerView)
 
         return containerView
@@ -89,7 +89,7 @@ extension STNumberLabel {
         let newContainerViewFrame = CGRect(origin: CGPointZero, size: CGSize(width: CGFloat(newDigit) * singleNumberSize.width, height: singleNumberSize.height))
 
         let newContainerView = UIView(frame: newContainerViewFrame)
-        newContainerView.center = absoluteCenter
+        newContainerView.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
         newContainerView.alpha = 0.0
         
         var newSrollNumberView: [STScrollNumberView] = []
@@ -126,7 +126,7 @@ extension STNumberLabel {
             newContainerView.alpha = 1.0
             self.containerView.alpha = 0.0
 
-        }, completion: { finished in
+        }, completion: { _ in
 
             self.containerView.removeFromSuperview()
             self.containerView = newContainerView
