@@ -15,12 +15,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        numberlabel = STNumberLabel(frame: CGRectMake(150, 200, 200, 50), digit: 4, font: UIFont.systemFontOfSize(22.0), singleNumberSize: CGSize(width: 20, height: 50))
+        numberlabel = STNumberLabel(frame: CGRect(x: 150, y: 200, width: 200, height: 50), digit: 4, font: UIFont.systemFont(ofSize: 22.0), singleNumberSize: CGSize(width: 20, height: 50))
         numberlabel.center = CGPoint(x: view.width / 2, y: 200)
         view.addSubview(numberlabel);
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
 
@@ -29,8 +29,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func buttonPressed(sender: AnyObject) {
-        guard let text = textField.text, number = Int(text) else { return }
+    @IBAction func buttonPressed(_ sender: AnyObject) {
+        guard let text = textField.text, let number = Int(text) else { return }
         numberlabel.scrollToNumber(number)
     }
 

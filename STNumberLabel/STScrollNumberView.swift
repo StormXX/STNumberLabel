@@ -22,10 +22,10 @@ class STScrollNumberView: UIView {
         scrollView = UIScrollView(frame: bounds)
         scrollView.contentSize = CGSize(width: self.width, height: self.height*10)
         for i in 0..<10 {
-            let numberFrame = CGRectMake(0, height*CGFloat(i), width, height)
+            let numberFrame = CGRect(x: 0, y: height*CGFloat(i), width: width, height: height)
             let label = UILabel(frame: numberFrame)
             label.text = "\(numberIndex[i])"
-            label.textAlignment = NSTextAlignment.Center
+            label.textAlignment = NSTextAlignment.center
             label.font = font
             scrollView.addSubview(label)
         }
@@ -38,7 +38,7 @@ class STScrollNumberView: UIView {
         self.init(frame: frame, font: font, number: 0)
     }
     
-    func scrollToNumber(number: NSInteger) {
+    func scrollToNumber(_ number: NSInteger) {
         if number<0 || number > 10 {
             scrollToNumber(0)
             return
@@ -47,7 +47,7 @@ class STScrollNumberView: UIView {
             return
         }
         currentNumber = number
-        UIView.animateWithDuration(1.0, delay: 0.0, options: .CurveEaseOut,
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut,
             animations: { [weak self]() -> Void in
                 guard let weakSelf = self else {return}
                 weakSelf.scrollView.setContentOffset(CGPoint(x: 0, y: weakSelf.height*CGFloat(weakSelf.numberIndex[number])), animated: false)

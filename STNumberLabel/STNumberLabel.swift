@@ -10,7 +10,7 @@ import UIKit
 
 class STNumberLabel: UIView {
     
-    private var digit: Int!
+    fileprivate var digit: Int!
     var scrollNumberViews: [STScrollNumberView]!
     
     internal var font: UIFont!
@@ -26,7 +26,7 @@ class STNumberLabel: UIView {
 
     }
     
-    func scrollToNumber(number: Int) {
+    func scrollToNumber(_ number: Int) {
         let numberString = String(number)
         let newDigit = numberString.characters.count
         
@@ -45,7 +45,7 @@ class STNumberLabel: UIView {
             let diff = newDigit - digit
             let translate = CGFloat(diff) * (singleNumberSize!.width / 2)
             
-            UIView.animateWithDuration(0.33, animations: { [unowned self]() -> Void in
+            UIView.animate(withDuration: 0.33, animations: { [unowned self]() -> Void in
                 self.containerView!.center = CGPoint(x: self.containerView!.center.x + translate, y: self.containerView!.center.y)
                 }, completion: { (finished) -> Void in
                     if finished {
@@ -57,8 +57,8 @@ class STNumberLabel: UIView {
     }
     
     // MARK: - helper
-    private func setupScrollNumberView() {
-        let containerViewFrame = CGRect(origin: CGPointZero, size: CGSize(width: CGFloat(digit) * singleNumberSize.width, height: singleNumberSize.height))
+    fileprivate func setupScrollNumberView() {
+        let containerViewFrame = CGRect(origin: CGPoint.zero, size: CGSize(width: CGFloat(digit) * singleNumberSize.width, height: singleNumberSize.height))
         containerView = UIView(frame: containerViewFrame)
         containerView.center = absoluteCenter
         
@@ -73,8 +73,8 @@ class STNumberLabel: UIView {
         addSubview(containerView)
     }
     
-    private func constructNewContainerView(newDigit newDigit: Int, diff: Int, numberArray: [Int]) {
-        let newContainerViewFrame = CGRect(origin: CGPointZero, size: CGSize(width: CGFloat(newDigit) * singleNumberSize.width, height: singleNumberSize.height))
+    fileprivate func constructNewContainerView(newDigit: Int, diff: Int, numberArray: [Int]) {
+        let newContainerViewFrame = CGRect(origin: CGPoint.zero, size: CGSize(width: CGFloat(newDigit) * singleNumberSize.width, height: singleNumberSize.height))
         let newContainerView = UIView(frame: newContainerViewFrame)
         newContainerView.center = absoluteCenter
         newContainerView.alpha = 0.0
@@ -83,14 +83,14 @@ class STNumberLabel: UIView {
         
         if diff > 0 {
             for i in 0..<diff {
-                let numberFrame = CGRectMake(CGFloat(i)*singleNumberSize.width, 0, singleNumberSize.width, singleNumberSize.height)
+                let numberFrame = CGRect(x: CGFloat(i)*singleNumberSize.width, y: 0, width: singleNumberSize.width, height: singleNumberSize.height)
                 let scrollNumberView = STScrollNumberView(frame: numberFrame, font: font)
                 newSrollNumberView.append(scrollNumberView)
                 newContainerView.addSubview(scrollNumberView)
             }
             
             for i in 0..<digit {
-                let numberFrame = CGRectMake(CGFloat(i+diff)*singleNumberSize.width, 0, singleNumberSize.width, singleNumberSize.height)
+                let numberFrame = CGRect(x: CGFloat(i+diff)*singleNumberSize.width, y: 0, width: singleNumberSize.width, height: singleNumberSize.height)
                 let scrollNumberView = scrollNumberViews[i].deepCopy()
                 scrollNumberView.frame = numberFrame
                 newSrollNumberView.append(scrollNumberView)
@@ -98,7 +98,7 @@ class STNumberLabel: UIView {
             }
         } else {
             for i in -diff..<digit {
-                let numberFrame = CGRectMake(CGFloat(i+diff)*singleNumberSize.width, 0, singleNumberSize.width, singleNumberSize.height)
+                let numberFrame = CGRect(x: CGFloat(i+diff)*singleNumberSize.width, y: 0, width: singleNumberSize.width, height: singleNumberSize.height)
                 let scrollNumberView = scrollNumberViews[i].deepCopy()
                 scrollNumberView.frame = numberFrame
                 newSrollNumberView.append(scrollNumberView)
@@ -109,7 +109,7 @@ class STNumberLabel: UIView {
         
         addSubview(newContainerView)
         
-        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveLinear, animations: { [unowned self]() -> Void in
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: { [unowned self]() -> Void in
             newContainerView.alpha = 1.0
             self.containerView.alpha = 0.0
             }) { [unowned self](finished) -> Void in
